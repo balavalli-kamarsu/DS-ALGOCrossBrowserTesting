@@ -1,5 +1,5 @@
 Feature: Start page
-
+@startpage
   Scenario Outline: validation of Start Page
     Given User launch Browser and enters url "https://dsportalapp.herokuapp.com/"
     When User clicks on Get Started button

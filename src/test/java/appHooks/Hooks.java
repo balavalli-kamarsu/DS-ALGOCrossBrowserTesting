@@ -13,11 +13,12 @@ import io.cucumber.java.BeforeAll;
 import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
 import com.utils.ConfigReader;
+import com.utils.Helper;
 //import com.utils.Loggerload;
 
 public class Hooks {
 	private static WebDriver driver;
-//	private static DriverFactory driverfactory;
+	private static Helper helper;
 	static Scenario scenario;
 
 	@BeforeAll
@@ -27,11 +28,17 @@ public class Hooks {
 		ConfigReader.loadConfig();
 		String browser = ConfigReader.getBrowserType();
 		
-		//Initialize driver from driver factory
-//		driverfactory = new DriverFactory();
-//		driver = driverfactory.initializeDrivers(browser);
-//		Loggerload.info("Initializing driver for : "+browser);
+		// Initialize driver from Helper
+		helper = new Helper();
+		driver = helper.initializeDrivers(browser);
+		//Loggerload.info("Initializing driver for : "+browser);
 	
+	}
+	
+	@Before
+	public static void setUp() {
+        
+		Helper.setUpDriver();
 	}
 
 	@Before

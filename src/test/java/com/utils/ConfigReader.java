@@ -7,6 +7,7 @@ import java.util.Properties;
 
 public class ConfigReader {
 	private static Properties properties;
+	private static String browserType = null;
 	private final static String propertyFilePath = "./src/test/resources/config/config.properties";
 
 	public static void loadConfig() throws Throwable {
@@ -27,14 +28,15 @@ public class ConfigReader {
 		}
 	}
 
-	public static String getBrowserType() {
-		String browser = properties.getProperty("browser");
-//		Loggerload.info("Get property BrowserType");
-		if (browser != null)
-			return browser;
-		else
-			throw new RuntimeException("browser not specified in the Configuration.properties file.");
+	public static void setBrowserType(String browser) {
+		browserType = browser;
 	}
+	public static String getBrowserType() throws Throwable {
+	if (browserType != null)
+		return browserType;
+	else
+		throw new RuntimeException("browser not specified in the testng.xml");
+}
 
 	public static String getApplicationUrl() {
 		String url = properties.getProperty("url");
