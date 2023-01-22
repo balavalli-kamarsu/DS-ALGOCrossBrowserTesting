@@ -1,3 +1,4 @@
+@login
 Feature: Login
 
   Background: 
@@ -6,7 +7,7 @@ Feature: Login
     And clicks on signin link
     Then user will successfuly able to see signIn page
 
-  @login
+  
   Scenario Outline: signIn validation with valid inputs
     When user clicks on Register link on signIn page
     Then user should be successfully redirected to register page
@@ -22,12 +23,12 @@ Feature: Login
       | abcde12ab3@gmail.com   | pranav@12  |
       | swatiii1ab23@gmail.com | prathap@12 |
 
-  @login
+ 
   Scenario: signIn validation with inValid inputs
     When user click on signIn without entering anything on textbox
     Then user should get error msg "Please fill out this field."
 
-  @login
+
   Scenario Outline: signIn validation with inValid inputs
     When user enters  "<username>"  and click on SignIn
     Then user should be able to see error message "Please fill out this field." below password field.
@@ -36,7 +37,7 @@ Feature: Login
       | username      | password |
       | abc@gmail.com |          |
 
-  @login
+
   Scenario Outline: signIn validation with inValid inputs
     When user enters invalid "<username>" "<password>" and click on SignIn
     Then user should be able to see error message "Invalid Username and Password"
