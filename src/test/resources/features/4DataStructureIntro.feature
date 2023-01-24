@@ -1,3 +1,4 @@
+@ds 
 Feature: Data Structure Intro
 
 Background:
@@ -7,7 +8,7 @@ Background:
     When user enters  "abcde12ab3@gmail.com" "pranav@12"
     And user click on login button
     
-@ds  
+ 
 Scenario:
  		Given The user is on home page as title "NumpyNinja"
     When user click on Get started button in Data Structure
